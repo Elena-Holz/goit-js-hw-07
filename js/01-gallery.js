@@ -28,7 +28,7 @@ function getImgCart(galleryItems) {
 divContainer.addEventListener('click', onDivContainerClick);
 
 function onDivContainerClick(event) {
-  event.preventDefoult();
+  // event.preventDefault();
   if (!event.target.classList.contains('.gallery_image')) {
     return
   } const instance = basicLightbox.create(`
@@ -46,44 +46,3 @@ function onDivContainerClick(event) {
     }
   }
 }
-  
-  // if (instance.visible) {  
-  //       window.addEventListener("keydown", onCloseESC);
-  //       window.addEventListener("click", mouseClick);
-  // };
-  //       function onCloseESC(event) {
-  //       if (event.code === "Escape") {
-  //   instance.close();
-  //   window.removeEventListener("keydown", onCloseESC);
-  //       }
-  //   }
-  //       function mouseClick(event) {
-  //       if(event.code === "mouseEnter") {
-  //           instance.close();
-  //   window.removeEventListener("click", mouseClick);
-  //       }
-    
-    
-
-
-
-//     window.addEventListener('keydown', (event) => {
-//       console.log(event.code);
-//     if (event.code === 'Escape') {
-//       instance.close();
-//       // window.removeEventListener('keydown', onCloseModal); 
-//   };
-// });
-// };
-  
-//   document.addEventListener('keyup', onCloseModal);
-
-
-// function onCloseModal(event) {
-//   console.log(event.code);
-//     if (event.code === 'Escape') {
-//       instance.close();
-//       window.removeEventListener('keydown', onCloseModal);
-      
-//   };
-// };
