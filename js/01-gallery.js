@@ -28,30 +28,42 @@ function getImgCart(galleryItems) {
 divContainer.addEventListener('click', onDivContainerClick);
 
 function onDivContainerClick(event) {
-  e.preventDefoult();
+  event.preventDefoult();
   if (!event.target.classList.contains('.gallery_image')) {
     return
   } const instance = basicLightbox.create(`
 <img src="${event.target.dataset.source}" width="800" height="600">
-`).show()
+`)
+  {
+    onShow: () => window.addEventListener("keydown", onCloseESC);
+    onclose: () => window.remove.EventListener("keydown", onCloseESC);
+  }
+  instance.show();
+
+  function onCloseESC(event) {
+    if (event.code === "Escape") {
+      instance.close();
+    }
+  }
+}
   
-  if (instance.visible) {  
-        window.addEventListener("keydown", onCloseESC);
-        window.addEventListener("click", mouseClick);
-  };
-        function onCloseESC(event) {
-        if (event.code === "Escape") {
-    instance.close();
-    window.removeEventListener("keydown", onCloseESC);
-        }
-    }
-        function mouseClick(event) {
-        if(event.code === "mouseEnter") {
-            instance.close();
-    window.removeEventListener("click", mouseClick);
-        }
-    }
-    }
+  // if (instance.visible) {  
+  //       window.addEventListener("keydown", onCloseESC);
+  //       window.addEventListener("click", mouseClick);
+  // };
+  //       function onCloseESC(event) {
+  //       if (event.code === "Escape") {
+  //   instance.close();
+  //   window.removeEventListener("keydown", onCloseESC);
+  //       }
+  //   }
+  //       function mouseClick(event) {
+  //       if(event.code === "mouseEnter") {
+  //           instance.close();
+  //   window.removeEventListener("click", mouseClick);
+  //       }
+    
+    
 
 
 
